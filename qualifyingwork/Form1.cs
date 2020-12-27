@@ -73,5 +73,44 @@ namespace qualifyingwork
             textBox2.Text = msg;
             label2.Text = "Получено сообщение : " + msg;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {         
+            char[] message2;
+            ushort[] data;
+            ushort size_memory; //размер памяти
+            ushort size_header; //размер заголовка
+
+            MemoryMappedFile sharedMemory = MemoryMappedFile.OpenExisting("SIMITSharedMemory");
+            //Сначала считываем размер сообщения, чтобы создать массив данного размера
+            //Integer занимает 4 байта, начинается с первого байта, поэтому передаем цифры 0 и 4
+            using (MemoryMappedViewAccessor reader = sharedMemory.CreateViewAccessor(0, 4, MemoryMappedFileAccess.Read))
+            {
+                size_memory = reader.ReadUInt16(0);
+            }
+            using (MemoryMappedViewAccessor reader = sharedMemory.CreateViewAccessor(4, 4, MemoryMappedFileAccess.Read))
+            {
+                size_header = reader.ReadUInt16(0);
+            }
+            label7.Text = "Размер общей памяти: " + size_memory.ToString();
+            label10.Text = "Размер заголовка: " + size_header.ToString(); 
+            //Считываем сообщение, используя полученный выше размер
+            //Сообщение - это строка или массив объектов char, каждый из которых занимает два байта
+            //Поэтому вторым параметром передаем число символов умножив на из размер в байтах плюс
+            //А первый параметр - смещение - 112 байта, которое занимает размер сообщения
+            using (MemoryMappedViewAccessor reader = sharedMemory.CreateViewAccessor(112, size_memory * 2, MemoryMappedFileAccess.Read))
+            {
+                //Массив символов сообщения               
+                data = new ushort[size_memory];
+                reader.ReadArray<ushort>(0, data, 0, size_memory);
+            }
+
+  
+            label5.Text = "1) " + data[0].ToString();
+            label6.Text = "2) " + data[1].ToString();
+            label8.Text = "3) " + data[2].ToString();
+            label9.Text = "4) " + data[3].ToString();
+            
+        }
     }
 }
