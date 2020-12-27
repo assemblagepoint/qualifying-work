@@ -1,0 +1,10 @@
+C:\Users\Danila\Desktop\qualifyingwork\bin\Debug\qualifyingwork.exe.config
+C:\Users\Danila\Desktop\qualifyingwork\bin\Debug\qualifyingwork.exe
+C:\Users\Danila\Desktop\qualifyingwork\bin\Debug\qualifyingwork.pdb
+C:\Users\Danila\Desktop\qualifyingwork\obj\Debug\qualifyingwork.csprojAssemblyReference.cache
+C:\Users\Danila\Desktop\qualifyingwork\obj\Debug\qualifyingwork.Form1.resources
+C:\Users\Danila\Desktop\qualifyingwork\obj\Debug\qualifyingwork.Properties.Resources.resources
+C:\Users\Danila\Desktop\qualifyingwork\obj\Debug\qualifyingwork.csproj.GenerateResource.cache
+C:\Users\Danila\Desktop\qualifyingwork\obj\Debug\qualifyingwork.csproj.CoreCompileInputs.cache
+C:\Users\Danila\Desktop\qualifyingwork\obj\Debug\qualifyingwork.exe
+C:\Users\Danila\Desktop\qualifyingwork\obj\Debug\qualifyingwork.pdb
