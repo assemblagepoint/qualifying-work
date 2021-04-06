@@ -39,8 +39,7 @@ namespace qualifyingwork
                 //запись сообщения с четвертого байта в разделяемой памяти
                 writer.WriteArray<char>(4, message, 0, message.Length);
             }        
-        }
-
+        } //кнопка отправить
         private void button2_Click(object sender, EventArgs e)
         {
             //Массив для сообщения из общей памяти
@@ -72,7 +71,8 @@ namespace qualifyingwork
             string msg = new string(message2);
             textBox2.Text = msg;
             label2.Text = "Получено сообщение : " + msg;
-        }
+        } //кнопка получить
+
 
         private void button4_Click(object sender, EventArgs e)
         {         
