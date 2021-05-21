@@ -22,9 +22,11 @@ C:\ВКРпрога\qualifying-work\qualifyingwork\bin\Debug\qualifyingwork.exe.
 C:\ВКРпрога\qualifying-work\qualifyingwork\bin\Debug\qualifyingwork.exe
 C:\ВКРпрога\qualifying-work\qualifyingwork\bin\Debug\qualifyingwork.pdb
 C:\ВКРпрога\qualifying-work\qualifyingwork\obj\Debug\qualifyingwork.csprojAssemblyReference.cache
-C:\ВКРпрога\qualifying-work\qualifyingwork\obj\Debug\qualifyingwork.Form1.resources
 C:\ВКРпрога\qualifying-work\qualifyingwork\obj\Debug\qualifyingwork.Properties.Resources.resources
 C:\ВКРпрога\qualifying-work\qualifyingwork\obj\Debug\qualifyingwork.csproj.GenerateResource.cache
 C:\ВКРпрога\qualifying-work\qualifyingwork\obj\Debug\qualifyingwork.csproj.CoreCompileInputs.cache
 C:\ВКРпрога\qualifying-work\qualifyingwork\obj\Debug\qualifyingwork.exe
 C:\ВКРпрога\qualifying-work\qualifyingwork\obj\Debug\qualifyingwork.pdb
+C:\ВКРпрога\qualifying-work\qualifyingwork\obj\Debug\qualifyingwork.MainForm.resources
+C:\ВКРпрога\qualifying-work\qualifyingwork\obj\Debug\qualifyingwork.ControlGA.resources
+C:\ВКРпрога\qualifying-work\qualifyingwork\obj\Debug\qualifyingwork.Info.resources
