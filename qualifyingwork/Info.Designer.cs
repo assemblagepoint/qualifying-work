@@ -73,9 +73,9 @@ namespace qualifyingwork
             // 
             // InfoSystem_button
             // 
-            this.InfoSystem_button.Location = new System.Drawing.Point(173, 326);
+            this.InfoSystem_button.Location = new System.Drawing.Point(175, 294);
             this.InfoSystem_button.Name = "InfoSystem_button";
-            this.InfoSystem_button.Size = new System.Drawing.Size(125, 23);
+            this.InfoSystem_button.Size = new System.Drawing.Size(129, 32);
             this.InfoSystem_button.TabIndex = 8;
             this.InfoSystem_button.Text = "Сведения о системе";
             this.InfoSystem_button.UseVisualStyleBackColor = true;
@@ -85,11 +85,11 @@ namespace qualifyingwork
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(181, 285);
+            this.label1.Location = new System.Drawing.Point(191, 262);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 19);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Самара 2020";
+            this.label1.Text = "Самара 2021";
             // 
             // label3
             // 
@@ -116,7 +116,7 @@ namespace qualifyingwork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 361);
+            this.ClientSize = new System.Drawing.Size(484, 331);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);

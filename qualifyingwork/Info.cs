@@ -37,6 +37,5 @@ namespace qualifyingwork
                 MessageBox.Show("Невозможно открыть справку. Файл справки поврежден или не найден.");
             }
         }
-
     }
 }

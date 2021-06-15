@@ -13,18 +13,13 @@ namespace qualifyingwork
 {
     public partial class MainForm : Form
     {
-        string id; //id в SHM
+        string id; 
 
         MemoryMappedFile SM;
 
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         //начать управление моделью
@@ -47,7 +42,6 @@ namespace qualifyingwork
         //проверить соединение
         private void button1_Click(object sender, EventArgs e)
         {
-            MemoryMappedFile sharedMemory1 = MemoryMappedFile.CreateOrOpen("SIMITSharedMemory", 200 + 4);
             id = textBox1.Text;
 
             if (textBox1.Text == "")
@@ -58,14 +52,16 @@ namespace qualifyingwork
             {
                 try
                 {
-                    SM = MemoryMappedFile.OpenExisting(id);
+                    SM = MemoryMappedFile.OpenExisting(id); 
                     label2.Text = "Соединение успешно установлено!";
                     label2.BackColor = Color.LightGreen;
+                    
                 }
                 catch
                 {
                     label2.Text = "Соединение не установлено!";
                     label2.BackColor = Color.Red;
+                   
                 }
             }
 

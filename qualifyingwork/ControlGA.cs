@@ -9,32 +9,37 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Timer = System.Threading.Timer;
+using System.Timers;
 
 namespace qualifyingwork
 {
     public partial class ControlGA : Form
     {
+        readonly MemoryMappedFile sharedMemory;
         Form MainForm;
-
-        public static System.Timers.Timer timer;
 
         public ControlGA(Form MainForm)
         {
             InitializeComponent();
             this.MainForm = MainForm;
-
-            timer = new System.Timers.Timer();
-            timer.Interval = 1000;
-            timer.Elapsed += new System.Timers.ElapsedEventHandler(_timer_Elapsed);
-            timer.Enabled = true;
+            try
+            {
+                sharedMemory = MemoryMappedFile.OpenExisting("SIMITSharedMemory");
+                using (MemoryMappedViewAccessor reader = sharedMemory.CreateViewAccessor(0, 8, MemoryMappedFileAccess.Read))
+                {
+                    size_memory = reader.ReadUInt16(0); //считываем размер памяти и размер заголовка
+                    size_header = reader.ReadUInt16(4);
+                }                                  
+            }        
+            catch
+            {
+                MessageBox.Show("Не удалось подключиться к модели.");
+            }
+                  
+            label7.Text += size_memory.ToString();
+            label10.Text += size_header.ToString();
         }
-
-        static void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
- 
-        }
-
+    
         ushort size_memory; //размер памяти в байтах
         ushort size_header; //размер заголовка в байтах
 
@@ -85,29 +90,12 @@ namespace qualifyingwork
         private bool I_VG; // В-Г: Вкл
         private bool I_VG_off; // В-Г: Выкл
 
-
         //Закрытие формы
         private void ControlGA_FormClosing(object sender, FormClosingEventArgs e)
         {
             MainForm.Visible = true;
         }
-
-        MemoryMappedFile sharedMemory1 = MemoryMappedFile.CreateOrOpen("SIMITSharedMemory", 204); //костыль для запуска
-
-        MemoryMappedFile sharedMemory = MemoryMappedFile.OpenExisting("SIMITSharedMemory");
-
-        private void button4_Click(object sender, EventArgs e) //кнопка получить параметры
-        {
-            //using (MemoryMappedViewAccessor reader = sharedMemory.CreateViewAccessor(0, 8, MemoryMappedFileAccess.Read))
-            using (MemoryMappedViewAccessor reader = sharedMemory.CreateViewAccessor(0, 8, MemoryMappedFileAccess.Read))//проверка костыля
-            {
-                size_memory = reader.ReadUInt16(0);
-                size_header = reader.ReadUInt16(4);
-            }
-            label7.Text += size_memory.ToString();
-            label10.Text += size_header.ToString();
-        }
-
+ 
         #region МЕТОДЫ ОТПРАВКА
 
         //Кнопка ПУСК (Пуск ГА)
@@ -339,9 +327,14 @@ namespace qualifyingwork
         }
 
         //Температура в маш. зале
-        private void textBox8_Enter(object sender, EventArgs e)
+
+        private void textBox8_KeyUp(object sender, KeyEventArgs e)
         {
-            _T_zal();
+            if (e.KeyCode == Keys.Enter)
+            { 
+                _T_zal();
+            }
+               
         }
 
         private void _T_zal()
@@ -354,14 +347,18 @@ namespace qualifyingwork
         }
 
         //Щит А верх
-        private void textBox7_Enter(object sender, EventArgs e)
+        private void textBox7_KeyUp(object sender, KeyEventArgs e)
         {
-            _H_lim_Sh1();
+            if (e.KeyCode == Keys.Enter)
+            {
+                _H_lim_Sh1();
+            }
         }
 
         private void _H_lim_Sh1()
         {
-            H_lim_Sh1 = Convert.ToSingle(textBox7.Text);
+            H_lim_Sh1 = float.Parse(textBox7.Text);
+            //H_lim_Sh1 = Convert.ToSingle(textBox7.Text);
             using (MemoryMappedViewAccessor writer = sharedMemory.CreateViewAccessor(size_header, size_memory, MemoryMappedFileAccess.Write))
             {
                 writer.Write(18, H_lim_Sh1);
@@ -369,9 +366,13 @@ namespace qualifyingwork
         }
 
         //Щит А низ
-        private void textBox6_Enter(object sender, EventArgs e)
+        private void textBox6_KeyUp(object sender, KeyEventArgs e)
         {
-            _L_lim_Sh1();
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                _L_lim_Sh1();
+            }
         }
 
         private void _L_lim_Sh1()
@@ -384,9 +385,12 @@ namespace qualifyingwork
         }
 
         //Щит Б верх
-        private void textBox1_Enter(object sender, EventArgs e)
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
         {
-            _H_lim_Sh2();
+            if (e.KeyCode == Keys.Enter)
+            {
+                _H_lim_Sh2();
+            }
         }
 
         private void _H_lim_Sh2()
@@ -399,9 +403,12 @@ namespace qualifyingwork
         }
 
         //Щит Б низ
-        private void textBox5_Enter(object sender, EventArgs e)
+        private void textBox5_KeyUp(object sender, KeyEventArgs e)
         {
-            _L_lim_Sh2();
+            if (e.KeyCode == Keys.Enter)
+            {
+                _L_lim_Sh2();
+            }
         }
 
         private void _L_lim_Sh2()
@@ -755,5 +762,56 @@ namespace qualifyingwork
                 panel12.BackColor = Color.Lavender;
         }
         #endregion
+
+        //Старт таймер
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Делаем таймер доступным
+            timer1.Enabled = true;
+            //Запускаем таймер
+            timer1.Start();
+        }
+
+        //стоп таймер
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //Останавливаем таймер
+            timer1.Stop();
+            //Снова делаем таймер недоступным
+            timer1.Enabled = false;
+        }
+
+        //Обработчик таймера (вызывается с заданной периодичностью)
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            _Shield1_pos();
+            _Shield2_pos();
+            _H_ResVal();
+            _N_turb();
+            _NA_idle();
+            _N_turb_idle();
+            _Not_Ready_mode();
+            _Ready_mode();
+            _Start_mode();
+            _Load_mode();
+            _Stop_mode();
+            _ES_DF_mode();
+            _ES_Runawa1_mode();
+            _ES_Runawa2_mode();
+            _SK_load_mode();
+            _Auto_mode();
+            _Man_mode();
+            _RP3();
+            _RP3_off();
+            _I_VG();
+            _I_VG_off();
+        }
+
+        //кнопка в меню
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainForm.Visible = true;
+        }
     }
 }

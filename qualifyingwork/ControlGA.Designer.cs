@@ -29,7 +29,7 @@ namespace qualifyingwork
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -129,13 +129,21 @@ namespace qualifyingwork
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.trackBar5 = new System.Windows.Forms.TrackBar();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -149,36 +157,30 @@ namespace qualifyingwork
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(21, 416);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(138, 35);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Получить значения из симуляции\r\n\r\n";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 454);
+            this.label7.Location = new System.Drawing.Point(6, 35);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(125, 13);
+            this.label7.Size = new System.Drawing.Size(92, 13);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Размер общей памяти:";
+            this.label7.Text = "Размер памяти: ";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(34, 476);
+            this.label10.Location = new System.Drawing.Point(5, 63);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(105, 13);
+            this.label10.Size = new System.Drawing.Size(108, 13);
             this.label10.TabIndex = 17;
-            this.label10.Text = "Размер заголовка:";
+            this.label10.Text = "Размер заголовка: ";
             // 
             // label1
             // 
@@ -434,7 +436,8 @@ namespace qualifyingwork
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(61, 20);
             this.textBox1.TabIndex = 69;
-            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             // 
             // textBox5
             // 
@@ -442,7 +445,8 @@ namespace qualifyingwork
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(61, 20);
             this.textBox5.TabIndex = 70;
-            this.textBox5.Enter += new System.EventHandler(this.textBox5_Enter);
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox5_KeyUp);
             // 
             // textBox6
             // 
@@ -450,7 +454,8 @@ namespace qualifyingwork
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(61, 20);
             this.textBox6.TabIndex = 71;
-            this.textBox6.Enter += new System.EventHandler(this.textBox6_Enter);
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox6_KeyUp);
             // 
             // textBox7
             // 
@@ -458,7 +463,8 @@ namespace qualifyingwork
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(61, 20);
             this.textBox7.TabIndex = 72;
-            this.textBox7.Enter += new System.EventHandler(this.textBox7_Enter);
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyUp);
             // 
             // label41
             // 
@@ -484,7 +490,7 @@ namespace qualifyingwork
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label43.Location = new System.Drawing.Point(1295, 217);
+            this.label43.Location = new System.Drawing.Point(14, 16);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(82, 20);
             this.label43.TabIndex = 75;
@@ -494,11 +500,11 @@ namespace qualifyingwork
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label44.Location = new System.Drawing.Point(666, 22);
+            this.label44.Location = new System.Drawing.Point(6, 16);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(112, 20);
+            this.label44.Size = new System.Drawing.Size(142, 20);
             this.label44.TabIndex = 76;
-            this.label44.Text = "Открытие НА";
+            this.label44.Text = "Открытие НА, мм\r\n";
             // 
             // label45
             // 
@@ -524,7 +530,7 @@ namespace qualifyingwork
             // 
             this.label47.AutoSize = true;
             this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label47.Location = new System.Drawing.Point(666, 175);
+            this.label47.Location = new System.Drawing.Point(6, 158);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(125, 20);
             this.label47.TabIndex = 79;
@@ -534,7 +540,7 @@ namespace qualifyingwork
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label48.Location = new System.Drawing.Point(666, 140);
+            this.label48.Location = new System.Drawing.Point(6, 121);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(206, 20);
             this.label48.TabIndex = 80;
@@ -544,7 +550,7 @@ namespace qualifyingwork
             // 
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label49.Location = new System.Drawing.Point(666, 110);
+            this.label49.Location = new System.Drawing.Point(6, 86);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(99, 20);
             this.label49.TabIndex = 81;
@@ -554,7 +560,7 @@ namespace qualifyingwork
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label50.Location = new System.Drawing.Point(666, 80);
+            this.label50.Location = new System.Drawing.Point(8, 194);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(204, 20);
             this.label50.TabIndex = 82;
@@ -564,7 +570,7 @@ namespace qualifyingwork
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label51.Location = new System.Drawing.Point(666, 51);
+            this.label51.Location = new System.Drawing.Point(6, 51);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(78, 20);
             this.label51.TabIndex = 83;
@@ -584,7 +590,7 @@ namespace qualifyingwork
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label53.Location = new System.Drawing.Point(666, 305);
+            this.label53.Location = new System.Drawing.Point(8, 346);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(216, 20);
             this.label53.TabIndex = 85;
@@ -594,7 +600,7 @@ namespace qualifyingwork
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label54.Location = new System.Drawing.Point(666, 258);
+            this.label54.Location = new System.Drawing.Point(8, 294);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(231, 20);
             this.label54.TabIndex = 86;
@@ -604,7 +610,7 @@ namespace qualifyingwork
             // 
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label55.Location = new System.Drawing.Point(666, 206);
+            this.label55.Location = new System.Drawing.Point(8, 244);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(170, 20);
             this.label55.TabIndex = 87;
@@ -626,6 +632,8 @@ namespace qualifyingwork
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(61, 20);
             this.textBox8.TabIndex = 89;
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox8_KeyUp);
             // 
             // label56
             // 
@@ -722,7 +730,7 @@ namespace qualifyingwork
             // 
             this.label65.AutoSize = true;
             this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label65.Location = new System.Drawing.Point(1295, 271);
+            this.label65.Location = new System.Drawing.Point(14, 70);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(20, 20);
             this.label65.TabIndex = 99;
@@ -732,7 +740,7 @@ namespace qualifyingwork
             // 
             this.label66.AutoSize = true;
             this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label66.Location = new System.Drawing.Point(1348, 271);
+            this.label66.Location = new System.Drawing.Point(67, 70);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(20, 20);
             this.label66.TabIndex = 100;
@@ -1013,11 +1021,11 @@ namespace qualifyingwork
             this.groupBox9.Controls.Add(this.label62);
             this.groupBox9.Controls.Add(this.label63);
             this.groupBox9.Controls.Add(this.label64);
-            this.groupBox9.Location = new System.Drawing.Point(1442, 9);
+            this.groupBox9.Location = new System.Drawing.Point(1227, 9);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox9.Size = new System.Drawing.Size(232, 305);
+            this.groupBox9.Size = new System.Drawing.Size(224, 399);
             this.groupBox9.TabIndex = 129;
             this.groupBox9.TabStop = false;
             // 
@@ -1096,7 +1104,7 @@ namespace qualifyingwork
             // trackBar2
             // 
             this.trackBar2.LargeChange = 1;
-            this.trackBar2.Location = new System.Drawing.Point(916, 307);
+            this.trackBar2.Location = new System.Drawing.Point(258, 345);
             this.trackBar2.Maximum = 200;
             this.trackBar2.Minimum = 1;
             this.trackBar2.Name = "trackBar2";
@@ -1109,15 +1117,16 @@ namespace qualifyingwork
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(1159, 307);
+            this.textBox10.Location = new System.Drawing.Point(501, 348);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(35, 20);
             this.textBox10.TabIndex = 134;
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // trackBar3
             // 
             this.trackBar3.LargeChange = 1;
-            this.trackBar3.Location = new System.Drawing.Point(916, 256);
+            this.trackBar3.Location = new System.Drawing.Point(258, 294);
             this.trackBar3.Maximum = 150;
             this.trackBar3.Minimum = -150;
             this.trackBar3.Name = "trackBar3";
@@ -1129,15 +1138,16 @@ namespace qualifyingwork
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(1159, 260);
+            this.textBox11.Location = new System.Drawing.Point(501, 296);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(35, 20);
             this.textBox11.TabIndex = 136;
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // trackBar4
             // 
             this.trackBar4.LargeChange = 1;
-            this.trackBar4.Location = new System.Drawing.Point(916, 206);
+            this.trackBar4.Location = new System.Drawing.Point(258, 243);
             this.trackBar4.Maximum = 200;
             this.trackBar4.Name = "trackBar4";
             this.trackBar4.Size = new System.Drawing.Size(237, 45);
@@ -1149,15 +1159,16 @@ namespace qualifyingwork
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(1159, 208);
+            this.textBox12.Location = new System.Drawing.Point(501, 246);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(35, 20);
             this.textBox12.TabIndex = 138;
+            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // trackBar5
             // 
             this.trackBar5.LargeChange = 1;
-            this.trackBar5.Location = new System.Drawing.Point(916, 75);
+            this.trackBar5.Location = new System.Drawing.Point(258, 194);
             this.trackBar5.Maximum = 125;
             this.trackBar5.Name = "trackBar5";
             this.trackBar5.Size = new System.Drawing.Size(237, 45);
@@ -1169,83 +1180,183 @@ namespace qualifyingwork
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(1159, 82);
+            this.textBox13.Location = new System.Drawing.Point(501, 196);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(35, 20);
             this.textBox13.TabIndex = 140;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(29, 350);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 40);
-            this.button2.TabIndex = 141;
-            this.button2.Text = "Отправить в SHM";
-            this.button2.UseVisualStyleBackColor = true;
+            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(1287, 247);
+            this.textBox2.Location = new System.Drawing.Point(6, 46);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(42, 20);
             this.textBox2.TabIndex = 142;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(1335, 247);
+            this.textBox3.Location = new System.Drawing.Point(54, 46);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(42, 20);
             this.textBox3.TabIndex = 143;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(1159, 50);
+            this.textBox4.Location = new System.Drawing.Point(233, 53);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(35, 20);
             this.textBox4.TabIndex = 144;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(1159, 112);
+            this.textBox9.Location = new System.Drawing.Point(233, 88);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(35, 20);
             this.textBox9.TabIndex = 145;
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(1159, 142);
+            this.textBox14.Location = new System.Drawing.Point(233, 123);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(35, 20);
             this.textBox14.TabIndex = 146;
+            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(1159, 179);
+            this.textBox15.Location = new System.Drawing.Point(233, 158);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(35, 20);
             this.textBox15.TabIndex = 147;
+            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(173, 35);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(136, 41);
+            this.button3.TabIndex = 149;
+            this.button3.Text = "Начать считывание сигналов";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(315, 35);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(136, 41);
+            this.button5.TabIndex = 150;
+            this.button5.Text = "Остановить считывание сигналов";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(233, 18);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(35, 20);
+            this.textBox16.TabIndex = 151;
+            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.groupBox10);
+            this.groupBox1.Controls.Add(this.label44);
+            this.groupBox1.Controls.Add(this.textBox16);
+            this.groupBox1.Controls.Add(this.label47);
+            this.groupBox1.Controls.Add(this.label48);
+            this.groupBox1.Controls.Add(this.textBox15);
+            this.groupBox1.Controls.Add(this.label49);
+            this.groupBox1.Controls.Add(this.textBox14);
+            this.groupBox1.Controls.Add(this.label50);
+            this.groupBox1.Controls.Add(this.textBox9);
+            this.groupBox1.Controls.Add(this.label51);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.label53);
+            this.groupBox1.Controls.Add(this.label54);
+            this.groupBox1.Controls.Add(this.label55);
+            this.groupBox1.Controls.Add(this.textBox13);
+            this.groupBox1.Controls.Add(this.trackBar5);
+            this.groupBox1.Controls.Add(this.textBox12);
+            this.groupBox1.Controls.Add(this.trackBar2);
+            this.groupBox1.Controls.Add(this.trackBar4);
+            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Controls.Add(this.textBox11);
+            this.groupBox1.Controls.Add(this.trackBar3);
+            this.groupBox1.Location = new System.Drawing.Point(670, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(549, 399);
+            this.groupBox1.TabIndex = 152;
+            this.groupBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(448, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 26);
+            this.label2.TabIndex = 154;
+            this.label2.Text = "АВАРИЯ";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.label43);
+            this.groupBox10.Controls.Add(this.label66);
+            this.groupBox10.Controls.Add(this.label65);
+            this.groupBox10.Controls.Add(this.textBox2);
+            this.groupBox10.Controls.Add(this.textBox3);
+            this.groupBox10.Location = new System.Drawing.Point(288, 92);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(105, 95);
+            this.groupBox10.TabIndex = 153;
+            this.groupBox10.TabStop = false;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.button2);
+            this.groupBox11.Controls.Add(this.button3);
+            this.groupBox11.Controls.Add(this.button5);
+            this.groupBox11.Controls.Add(this.label7);
+            this.groupBox11.Controls.Add(this.label10);
+            this.groupBox11.Location = new System.Drawing.Point(9, 311);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(654, 97);
+            this.groupBox11.TabIndex = 153;
+            this.groupBox11.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(504, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(136, 41);
+            this.button2.TabIndex = 151;
+            this.button2.Text = "В меню";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ControlGA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1684, 566);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.trackBar5);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.trackBar4);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.trackBar3);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.trackBar2);
+            this.ClientSize = new System.Drawing.Size(1459, 415);
+            this.Controls.Add(this.groupBox11);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
@@ -1254,26 +1365,11 @@ namespace qualifyingwork
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label66);
-            this.Controls.Add(this.label65);
-            this.Controls.Add(this.label55);
-            this.Controls.Add(this.label54);
-            this.Controls.Add(this.label53);
-            this.Controls.Add(this.label51);
-            this.Controls.Add(this.label50);
-            this.Controls.Add(this.label49);
-            this.Controls.Add(this.label48);
-            this.Controls.Add(this.label47);
-            this.Controls.Add(this.label44);
-            this.Controls.Add(this.label43);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.button4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ControlGA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "-";
+            this.Text = "Управление ГА";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ControlGA_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -1296,13 +1392,17 @@ namespace qualifyingwork
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
@@ -1402,13 +1502,21 @@ namespace qualifyingwork
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TrackBar trackBar5;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }
 
